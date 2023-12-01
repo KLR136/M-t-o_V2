@@ -18,9 +18,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Label Content="Annecy" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-            <ComboBox Grid.Column="2" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+            <ComboBox Name="Changer_ville" Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="Changer_ville_SC"/>
+            <TextBox  Text="Annecy" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+            <ComboBox Name="Supprimer_ville" Grid.Column="2" VerticalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="Supprimer_ville_SC"/>
         </Grid>
         <Grid Name="Ajd" Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -29,14 +29,18 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Background="#2f5cb6">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <Image Name="Current_cond"/>
+                    <TextBlock Text="Conditions actuelles" FontSize="29.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <TextBlock Text="Conditions actuelles" FontSize="29.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="Current_cond"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <TextBlock Name="Current_cond_txt"/>
                 </Grid>
             </Grid>
             <Grid Grid.Column="1">
@@ -58,12 +62,12 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Name="Heure" Grid.Row="0" Grid.Column="0"/>
-                        <TextBlock Name="Taux_pluie" Grid.Row="1" Grid.Column="0"/>
-                        <TextBlock Name="Température" Grid.Row="2" Grid.Column="0"/>
-                        <TextBlock Name="Vent" Grid.Row="0" Grid.Column="1"/>
-                        <TextBlock Name="Dir_vent" Grid.Row="1" Grid.Column="1"/>
-                        <TextBlock Name="Pression" Grid.Row="2" Grid.Column="1"/>
+                        <TextBlock Name="Heure" Text="" Grid.Row="0" Grid.Column="0"/>
+                        <TextBlock Name="Taux_pluie" Text="" Grid.Row="1" Grid.Column="0"/>
+                        <TextBlock Name="Température" Text="" Grid.Row="2" Grid.Column="0"/>
+                        <TextBlock Name="Vent" Text="" Grid.Row="0" Grid.Column="1"/>
+                        <TextBlock Name="Dir_vent" Text="" Grid.Row="1" Grid.Column="1"/>
+                        <TextBlock Name="Pression" Text="" Grid.Row="2" Grid.Column="1"/>
                     </Grid>
                 </Grid>
             </Grid>
@@ -87,6 +91,9 @@
                     <Image Name="Demain_cond" HorizontalAlignment="Center"/>
                 </Grid>
                 <Grid Grid.Row="2">
+                    <TextBlock Name="Demain_cond_txt"/>
+                </Grid>
+                <Grid Grid.Row="2">
                     <TextBlock FontSize="25" HorizontalAlignment="Center"/>
                 </Grid>
             </Grid>
@@ -103,6 +110,9 @@
                     <Image Name="Deux_j_cond" HorizontalAlignment="Center"/>
                 </Grid>
                 <Grid Grid.Row="2">
+                    <TextBlock Name="Deux_j_cond_txt"/>
+                </Grid>
+                <Grid Grid.Row="2">
                     <TextBlock FontSize="25" HorizontalAlignment="Center"/>
                 </Grid>
             </Grid>
@@ -117,6 +127,9 @@
                 </Grid>
                 <Grid Grid.Row="1">
                     <Image Name="Trois_j_cond" HorizontalAlignment="Center"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <TextBlock Name="Trois_j_cond_txt"/>
                 </Grid>
                 <Grid Grid.Row="2">
                     <TextBlock FontSize="25" HorizontalAlignment="Center"/>

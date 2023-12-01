@@ -72,6 +72,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Personne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,16 +99,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Ressources\broken clouds.png" />
-    <Resource Include="Ressources\clear sky.png" />
-    <Resource Include="Ressources\few clouds.png" />
-    <Resource Include="Ressources\mist.png" />
-    <Resource Include="Ressources\rain.png" />
-    <Resource Include="Ressources\scattered clouds.png" />
-    <Resource Include="Ressources\shower rain.png" />
-    <Resource Include="Ressources\snow.png" />
-    <Resource Include="Ressources\thunderstorm.png" />
+    <Resource Include="Ressources\Liste_villes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
