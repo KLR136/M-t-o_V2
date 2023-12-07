@@ -17,6 +17,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Linq.Expressions;
 using System.IO;
+using Météo_V2.Properties;
 
 namespace Météo_V2
 {
@@ -863,6 +864,7 @@ namespace Météo_V2
         public MainWindow()
         {
             InitializeComponent();
+            Changer_ville_SC(null,null);
             Getweather();
         }
         // message
@@ -907,29 +909,32 @@ namespace Météo_V2
             }
         }
 
-        private void Changer_ville_SC(object sender, SelectionChangedEventArgs e)
-        {
-            if (Changer_ville.SelectedItem != null)
-            {
-                string selectedCity = Changer_ville.SelectedItem.ToString();
-                Getweather();
-            }
-        }
-
-
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
-            string newText = textBox.Text;
-            string filePath = "Ressources/Liste_villes.txt";
+            string newText = Nom_ville.Text;
+            string filePath = "C:\\Users\\SLAB61\\source\\repos\\Météo_V2\\Météo_V2\\Ressources\\Liste_ville.txt";
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine(newText);
             }
+            Changer_ville.Items.Add(newText);
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void Supprimer_Click(object sender, RoutedEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
+            
+        }
+
+        private void Changer_ville_SC(object sender, RoutedEventArgs e)
+        {
+            string[] lignes = File.ReadAllLines("C:\\Users\\SLAB61\\source\\repos\\Météo_V2\\Météo_V2\\Ressources\\Liste_ville.txt");
+
+            // Ajouter chaque ligne à la ComboBox
+            foreach (string ligne in lignes)
+            {
+                Changer_ville.Items.Add(ligne);
+            }
+
         }
     }
 }

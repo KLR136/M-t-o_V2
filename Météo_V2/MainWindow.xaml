@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox  Name="Nom_ville" Text="" Background="Blue" Grid.Column="0" TextChanged="TextBox_TextChanged"/>
+                <TextBox  Name="Nom_ville" Text="" Background="Blue" Grid.Column="0"/>
                 <Button Name="Ajouter" Content="Ajouter" Background="Green" Grid.Column="1" Click="Ajouter_Click"/>
                 <Button Name="Supprimer" Content="Supprimer" Background="Red" Grid.Column="2" />
             </Grid>
