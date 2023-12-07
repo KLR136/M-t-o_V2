@@ -864,7 +864,12 @@ namespace Météo_V2
         public MainWindow()
         {
             InitializeComponent();
-            Changer_ville_SC(null,null);
+            string[] lignes = File.ReadAllLines("C:\\Users\\SLAB61\\source\\repos\\Météo_V2\\Météo_V2\\Ressources\\Liste_ville.txt");
+
+            foreach (string ligne in lignes)
+            {
+                Changer_ville.Items.Add(ligne);
+            }
             Getweather();
         }
         // message
@@ -927,13 +932,6 @@ namespace Météo_V2
 
         private void Changer_ville_SC(object sender, RoutedEventArgs e)
         {
-            string[] lignes = File.ReadAllLines("C:\\Users\\SLAB61\\source\\repos\\Météo_V2\\Météo_V2\\Ressources\\Liste_ville.txt");
-
-            // Ajouter chaque ligne à la ComboBox
-            foreach (string ligne in lignes)
-            {
-                Changer_ville.Items.Add(ligne);
-            }
 
         }
     }
