@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Linq.Expressions;
+using System.IO;
 
 namespace Météo_V2
 {
@@ -865,12 +866,12 @@ namespace Météo_V2
             Getweather();
         }
         // message
-        public async Task<string> Getweather(string )
+        public async Task<string> Getweather()
         {
             HttpClient client = new HttpClient();
             try
             {
-                HttpResponseMessage response = await client.GetAsync("https://www.prevision-meteo.ch/services/json/" + );
+                HttpResponseMessage response = await client.GetAsync("https://www.prevision-meteo.ch/services/json/Annecy");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -913,6 +914,22 @@ namespace Météo_V2
                 string selectedCity = Changer_ville.SelectedItem.ToString();
                 Getweather();
             }
+        }
+
+
+        private void Ajouter_Click(object sender, RoutedEventArgs e)
+        {
+            string newText = textBox.Text;
+            string filePath = "Ressources/Liste_villes.txt";
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(newText);
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
         }
     }
 }

@@ -16,11 +16,18 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox Name="Changer_ville" Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="Changer_ville_SC"/>
-            <TextBox  Text="Annecy" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-            <ComboBox Name="Supprimer_ville" Grid.Column="2" VerticalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="Supprimer_ville_SC"/>
+            <ComboBox Name="Changer_ville" Grid.Column="0" SelectionChanged="Changer_ville_SC"/>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox  Name="Nom_ville" Text="" Background="Blue" Grid.Column="0" TextChanged="TextBox_TextChanged"/>
+                <Button Name="Ajouter" Content="Ajouter" Background="Green" Grid.Column="1" Click="Ajouter_Click"/>
+                <Button Name="Supprimer" Content="Supprimer" Background="Red" Grid.Column="2" />
+            </Grid>
         </Grid>
         <Grid Name="Ajd" Grid.Row="1">
             <Grid.ColumnDefinitions>
